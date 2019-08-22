@@ -1,25 +1,16 @@
 import React from 'react';
+//import style from '../component-styles/Nav.module.css';
+import ListGroup from 'react-bootstrap/ListGroup'
 
-const Nav = () => {
+const NavBar = () => {
     return (
-        <nav className='nav'>
-            <div>
-                <a>Profile</a>
-            </div>
-            <div>
-                <a>Messages</a>
-            </div>
-            <div>
-                <a>News</a>
-            </div>
-            <div>
-                <a>Music</a>
-            </div>
-            <div>
-                <a>Settings</a>
-            </div>
-        </nav>
+        <ListGroup variant="flush">
+            <ListGroup.Item>Cras justo odio</ListGroup.Item>
+            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+        </ListGroup>
     );
 };
 
-export default Nav;
+export default NavBar;

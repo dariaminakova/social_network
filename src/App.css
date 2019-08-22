@@ -9,21 +9,3 @@
   width: 100%;
   margin: 0 auto;
 }
-.header{
-  grid-area: header-string;
-  background-color: grey;
-}
-.header img{
-  width: 60px;
-}
-.nav{
-  grid-area: nav-string;
-  background-color: rgb(182, 112, 112);
-}
-.content{
-  grid-area: content-string;
-  background-color: rgb(250, 212, 212);
-}
-.cover-img{
-  width: 100%;
-}
