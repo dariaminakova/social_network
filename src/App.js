@@ -1,16 +1,30 @@
 import React from 'react';
+import {Switch, Route} from 'react-router-dom'
+
 import './App.css';
 import Header from './components/Header';
-import Nav from './components/Nav-bar';
-import Profile from './components/Profile';
+import Profile from './components/Profile-component/Profile';
+import NavBar from './components/Nav-bar';
+import Dialogs from './components/Dialogs/Dialogs';
+import News from './components/News/News';
+import Music from './components/Music/Music';
+import Settings from './components/Settings/Settings'
 
 function App() {
   return (
-    <div className='app-wrapper'>
-      <Header />
-      <Nav />
-      <Profile />
-    </div>
+      <div className='app-wrapper'>
+        <Header />
+        <NavBar />
+        <div className='app-wrapper-content'>
+          <Switch>
+            <Route path='/profile' component = {Profile} />
+            <Route path='/dialogs' component = {Dialogs} />
+            <Route path='/news' component = {News} />
+            <Route path='/music' component = {Music} />
+            <Route path='/settings' component = {Settings} />
+          </Switch>
+        </div>
+      </div>
   );
 }
 

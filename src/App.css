@@ -9,3 +9,8 @@
   width: 100%;
   margin: 0 auto;
 }
+.app-wrapper-content{
+  grid-area: content-string;
+  background-color: rgb(250, 212, 212);
+  padding: 10px;
+}

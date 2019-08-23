@@ -1,15 +1,18 @@
 .nav{
   grid-area: nav-string;
+  display: flex;
+  flex-direction: column;
 }
-.item{
-  border-top: 1px solid #f2f2f6;
+a.item{
+  border-top: 1px solid #f2f6f5;
   cursor: pointer;
   transition: all 0.25s ease;
   margin: 0;
   padding: 8px;
   box-sizing: border-box;
+  color: grey;
+  text-decoration: none;
 }
-.item.active{
-  border-left: 2px solid #b37ba4;
-  color: rgb(182, 112, 112);
+a.item:focus{
+  color: rgb(16, 156, 156);
 }
