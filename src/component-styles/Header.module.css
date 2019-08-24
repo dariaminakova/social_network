@@ -1,6 +1,7 @@
 .header{
   grid-area: header-string;
-  background-color: grey;
+  background: -o-linear-gradient(left, rgb(187, 225, 255), rgb(228, 255, 205));
+  background: linear-gradient(to right, rgb(187, 225, 255), rgb(228, 255, 205));
 }
 .header img{
   width: 60px;
