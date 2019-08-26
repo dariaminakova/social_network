@@ -5,10 +5,11 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 class Profile extends Component {
     render(){
+    const {state, addPost} = this.props;
         return (
             <div>
                 <ProfileInfo />
-                <MyPosts />
+                <MyPosts post={state.postsObj} addPost={addPost} />
             </div>
         );
     }

@@ -5,6 +5,13 @@ import {NavLink} from 'react-router-dom';
 
 class NavBar extends Component {
     render(){
+
+        const{state} = this.props;
+
+        let friends = state.friendsObj.map((f) => {
+            return <li>{f.name}</li>
+        });
+
         return (
             <div className={style.nav}>
                 <NavLink className={style.item} to='/profile'>Profile</NavLink>
@@ -12,6 +19,11 @@ class NavBar extends Component {
                 <NavLink className={style.item} to='/news'>News</NavLink>
                 <NavLink className={style.item} to='/music'>Music</NavLink>
                 <NavLink className={style.item} to='/settings'>Settings</NavLink>
+
+                <ul className={style.f_container}>
+                    {friends}
+                </ul>
+
             </div>
         );
     }

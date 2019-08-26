@@ -5,11 +5,11 @@ import Button from 'react-bootstrap/Button';
 class Post extends Component {
     
     render(){
-        const {id, text, likesCount} = this.props;
+        const {text, likesCount} = this.props;
 
         return (
             <Card className="text-center">
-            <Card.Header>Featured</Card.Header>
+            <Card.Header></Card.Header>
             <Card.Body>
                 <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Special title treatment</Card.Title>

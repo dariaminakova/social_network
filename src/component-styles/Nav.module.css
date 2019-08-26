@@ -24,3 +24,6 @@ a.item{
 a.item:focus{
   color: rgb(16, 156, 156);
 }
+.f_container{
+  list-style: none;
+}

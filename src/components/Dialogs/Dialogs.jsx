@@ -6,48 +6,38 @@ import DialogUser from './DialogUser/DialogUser';
 
 class Dialogs extends Component {
     render(){
-        let dialogsData =[
-            {id: 1, name: 'Rick'},
-            {id: 2, name: 'Morty'},
-            {id: 3, name: 'Joy'},
-            {id: 4, name: 'Gerald'},
-            {id: 5, name: 'Chris'},
-            {id: 6, name: 'Peter'},
-            {id: 7, name: 'Tony'},
-            {id: 8, name: 'Eva'}
-        ];
+       const {state} = this.props;
 
-        let messagesData =[
-            {id: 0, message: 'Here'},
-            {id: 1, message: 'will'},
-            {id: 2, message: 'be'},
-            {id: 3, message: 'some'},
-            {id: 4, message: 'messages'},
-            {id: 5, message: 'from'},
-            {id: 6, message: 'your'},
-            {id: 7, message: 'users'}
-        ];
+       let dialogsUsers = state.dialogsObj.map((d) => {
+           return <DialogUser name={d.name} id={d.id} />
+       });
+       let messageUsers = state.messagesObj.map((m) => {
+           return <MessageItem message={m.message} />
+       });
 
-        let dialogsUsers = dialogsData.map((d) => {
-            return <DialogUser name={d.name} id={d.id} />
-        });
+       let newMessageElem = React.createRef();
 
-        let messageUsers = messagesData.map((m) => {
-            return <MessageItem message={m.message} />
-        });
+       let sendMessage = () => {
+           let currentMessage = newMessageElem.current.value;
+           console.log(currentMessage);
+       }
 
-        return (
-            <div className={style.dialogs}>
-                <div>
-                    <ul>
-                        {dialogsUsers}
-                    </ul>
-                </div>
-                <div>
-                    {messageUsers}
-                </div>
-            </div>
-        );
+       return (
+           <div className={style.dialogs}>
+               <div>
+                   <ul>
+                       {dialogsUsers}
+                   </ul>
+               </div>
+               <div>
+                   {messageUsers}
+                   <div>
+                       <textarea className={style.dialogs} ref= {newMessageElem} ></textarea>
+                       <button onClick = { sendMessage }>Send Message</button>
+                    </div>
+               </div>
+           </div>
+       );
     }
 }; 
 
