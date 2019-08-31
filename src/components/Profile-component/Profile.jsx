@@ -5,11 +5,15 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 class Profile extends Component {
     render(){
-    const {state, addPost} = this.props;
+    const {profilePage, addPost, updateNewPostText} = this.props;
         return (
             <div>
                 <ProfileInfo />
-                <MyPosts post={state.postsObj} addPost={addPost} />
+                <MyPosts 
+                post={profilePage.postsObj} 
+                newPostText={profilePage.newPostText} 
+                addPost={addPost} 
+                updateNewPostText = {updateNewPostText} />
             </div>
         );
     }

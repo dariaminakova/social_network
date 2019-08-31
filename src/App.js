@@ -14,7 +14,7 @@ class App extends Component {
   
   render(){
 
-    const {appState, addPost} = this.props;
+    const {appState, addPost, updateNewPostText} = this.props;
 
   return (
       <div className='app-wrapper'>
@@ -22,7 +22,11 @@ class App extends Component {
         <NavBar state={appState.profilePage} />
         <div className='app-wrapper-content'>
           <Switch>
-            <Route path='/profile' render = {() => <Profile state={appState.profilePage} addPost={addPost} />} />
+            <Route path='/profile' render = {() => 
+            <Profile 
+            profilePage={appState.profilePage} 
+            addPost={addPost} 
+            updateNewPostText={updateNewPostText} />} />
             <Route path='/dialogs' render = {() => <Dialogs state={appState.messagesPage} />} />
             <Route path='/news' render = {() => <News />} />
             <Route path='/music' render = {() => <Music />} />
