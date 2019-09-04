@@ -1,25 +1,33 @@
 import React, {Component} from 'react';
 import style from '../../component-styles/Dialogs.module.css';
 
+import {sendMessageActionCreator, updateMessageAriaActionCreator} from '../../redux/state';
+
 import MessageItem from './Message/Message';
 import DialogUser from './DialogUser/DialogUser';
 
 class Dialogs extends Component {
     render(){
-       const {state} = this.props;
+       const {messagesPage, dispatch} = this.props;
 
-       let dialogsUsers = state.dialogsObj.map((d) => {
+       let dialogsUsers = messagesPage.dialogsObj.map((d) => {
            return <DialogUser name={d.name} id={d.id} />
        });
-       let messageUsers = state.messagesObj.map((m) => {
+       let messageUsers = messagesPage.messagesObj.map((m) => {
            return <MessageItem message={m.message} />
        });
 
        let newMessageElem = React.createRef();
 
        let sendMessage = () => {
-           let currentMessage = newMessageElem.current.value;
-           console.log(currentMessage);
+        //    let currentMessage = newMessageElem.current.value;
+           dispatch(sendMessageActionCreator());
+       }
+
+       let onMessageAriaChange = () =>{
+        let text = newMessageElem.current.value;
+        dispatch(updateMessageAriaActionCreator(text));
+
        }
 
        return (
@@ -32,7 +40,11 @@ class Dialogs extends Component {
                <div>
                    {messageUsers}
                    <div>
-                       <textarea className={style.dialogs} ref= {newMessageElem} ></textarea>
+                       <textarea 
+                        className={style.dialogs} 
+                        onChange = {onMessageAriaChange}
+                        ref= {newMessageElem} 
+                        value = {messagesPage.newMessage}/>
                        <button onClick = { sendMessage }>Send Message</button>
                     </div>
                </div>

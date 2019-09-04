@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import Post from './Post';
+import {addPostActionCreator, updateNewTextActionCreator} from '../../../redux/state'
 
-import style from '../../../component-styles/MyPosts.module.css'
+import style from '../../../component-styles/MyPosts.module.css';
 
 class MyPosts extends Component {
     render(){
 
-        const {post, addPost, updateNewPostText, newPostText} = this.props;
+        const {post, dispatch, newPostText} = this.props;
 
         let postUsers = post.map((p) => {
             return <Post text={p.text} likesCount={p.likesCount}/>
@@ -15,13 +16,12 @@ class MyPosts extends Component {
         let newPostElement = React.createRef();
 
         let addPostCust = () => {
-            addPost();
-            updateNewPostText('');
+            dispatch(addPostActionCreator());
         }
 
         let onPostChange = () => {
             let text = newPostElement.current.value;
-            updateNewPostText(text);
+            dispatch(updateNewTextActionCreator(text));
         }
 
         return (

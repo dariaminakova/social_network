@@ -1,4 +1,15 @@
+// add and check post
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
+
+
+// add and check message
+const SEND_MESSAGE = 'SEND-MESSAGE';
+const UPDATE_MESSAGE_ARIA = 'UPDATE-MESSAGE-ARIA';
+
 let store = {
+
+// unchanged settings
     _state: {
         profilePage:{    
             postsObj: [ 
@@ -45,46 +56,64 @@ let store = {
                 {id: 5, message: 'from'},
                 {id: 6, message: 'your'},
                 {id: 7, message: 'users'}
-            ]
+            ],
+            newMessage: 'type your message',
         }
-    },
-
-    getState (){
-        return this._state;
     },
 
     _callSubscriber () {
         console.log(1)
     },
 
-    addPost () {
-        let newPost = {
-            id: 10,
-            text: this._state.profilePage.newPostText,
-            likesCount: 10
-        };
-    
-        this._state.profilePage.postsObj.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
+// changed settings
+    getState (){
+        return this._state;
     },
 
     subscribe (observer) {
         this._callSubscriber = observer;
+    },
+
+
+// dispatch for "Obj action" {type: обязательное свойство}
+    dispatch (action) { 
+        if(action.type === 'ADD-POST'){
+            let newPost = {
+                id: 10,
+                text: this._state.profilePage.newPostText,
+                likesCount: 8
+            };
+            this._state.profilePage.postsObj.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+        } else if(action.type === 'UPDATE-NEW-TEXT'){
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } else if(action.type === 'SEND-MESSAGE') {
+            let newMessage = {
+                id: 1,
+                message: this._state.messagesPage.newMessage
+            };
+            this._state.messagesPage.messagesObj.push(newMessage);
+            this._state.messagesPage.newMessage = '';
+            this._callSubscriber(this._state)
+        } else if (action.type === 'UPDATE-MESSAGE-ARIA'){
+            this._state.messagesPage.newMessage = action.newMessageText;
+            this._callSubscriber(this._state);
+        }
     }
+
 }
 
+export const addPostActionCreator = () => ({type: ADD_POST});
+export const updateNewTextActionCreator = (text) => {
+    return {type: UPDATE_NEW_TEXT, newText: text}
+}
 
-
-
-
-
-
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});
+export const updateMessageAriaActionCreator = (text) => {
+    return {type: UPDATE_MESSAGE_ARIA, newMessageText: text}
+}
 
 export default store;
 window.store = store;
