@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Post from './Post';
-import {addPostActionCreator, updateNewTextActionCreator} from '../../../redux/state'
+import {addPostCreator, updateNewTextCreator} from '../../../redux/state'
 
 import style from '../../../component-styles/MyPosts.module.css';
 
@@ -13,15 +13,13 @@ class MyPosts extends Component {
             return <Post text={p.text} likesCount={p.likesCount}/>
         });
 
-        let newPostElement = React.createRef();
-
         let addPostCust = () => {
-            dispatch(addPostActionCreator());
+            dispatch(addPostCreator());
         }
 
-        let onPostChange = () => {
-            let text = newPostElement.current.value;
-            dispatch(updateNewTextActionCreator(text));
+        let onPostChange = (e) => {
+            let text = e.target.value;
+            dispatch(updateNewTextCreator(text));
         }
 
         return (
@@ -30,7 +28,6 @@ class MyPosts extends Component {
                 <div>
                     <textarea 
                     onChange = {onPostChange} 
-                    ref = {newPostElement} 
                     value = {newPostText} />
                     <button onClick = { addPostCust }>Add post</button>
                 </div>

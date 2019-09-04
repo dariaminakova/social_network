@@ -57,7 +57,7 @@ let store = {
                 {id: 6, message: 'your'},
                 {id: 7, message: 'users'}
             ],
-            newMessage: 'type your message',
+            newMessage: '',
         }
     },
 
@@ -105,13 +105,13 @@ let store = {
 
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const updateNewTextActionCreator = (text) => {
+export const addPostCreator = () => ({type: ADD_POST});
+export const updateNewTextCreator = (text) => {
     return {type: UPDATE_NEW_TEXT, newText: text}
 }
 
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});
-export const updateMessageAriaActionCreator = (text) => {
+export const sendMessageCreator = () => ({type: SEND_MESSAGE});
+export const updateMessageAriaCreator = (text) => {
     return {type: UPDATE_MESSAGE_ARIA, newMessageText: text}
 }
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import style from '../../component-styles/Dialogs.module.css';
 
-import {sendMessageActionCreator, updateMessageAriaActionCreator} from '../../redux/state';
+import {sendMessageCreator, updateMessageAriaCreator} from '../../redux/state';
 
 import MessageItem from './Message/Message';
 import DialogUser from './DialogUser/DialogUser';
@@ -17,16 +17,13 @@ class Dialogs extends Component {
            return <MessageItem message={m.message} />
        });
 
-       let newMessageElem = React.createRef();
-
        let sendMessage = () => {
-        //    let currentMessage = newMessageElem.current.value;
-           dispatch(sendMessageActionCreator());
+           dispatch(sendMessageCreator());
        }
 
-       let onMessageAriaChange = () =>{
-        let text = newMessageElem.current.value;
-        dispatch(updateMessageAriaActionCreator(text));
+       let onMessageAriaChange = (e) =>{
+        let text = e.target.value;
+        dispatch(updateMessageAriaCreator(text));
 
        }
 
@@ -42,8 +39,8 @@ class Dialogs extends Component {
                    <div>
                        <textarea 
                         className={style.dialogs} 
+                        placeholder = 'type your message'
                         onChange = {onMessageAriaChange}
-                        ref= {newMessageElem} 
                         value = {messagesPage.newMessage}/>
                        <button onClick = { sendMessage }>Send Message</button>
                     </div>
