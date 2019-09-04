@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Post from './Post';
-import {addPostCreator, updateNewTextCreator} from '../../../redux/state'
+import {addPostCreator, updateNewTextCreator} from '../../../redux/profileReducer'
 
 import style from '../../../component-styles/MyPosts.module.css';
 

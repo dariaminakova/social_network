@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import style from '../../component-styles/Dialogs.module.css';
 
-import {sendMessageCreator, updateMessageAriaCreator} from '../../redux/state';
+import {sendMessageCreator, updateMessageAriaCreator} from '../../redux/messageReducer';
 
 import MessageItem from './Message/Message';
 import DialogUser from './DialogUser/DialogUser';
