@@ -1,29 +1,25 @@
-import React, {Component} from 'react';
+import React from 'react';
 import style from '../component-styles/Nav.module.css';
 import {NavLink} from 'react-router-dom';
 
-class NavBar extends Component {
-    render(){
+const NavBar = (props) => {
 
-        const{state} = this.props;
+    let friends = props.state.friendsObj.map((f) => {return <li>{f.name}</li>});
 
-        let friends = state.friendsObj.map((f) => {return <li>{f.name}</li>});
+    return (
+        <div className={style.nav}>
+            <NavLink className={style.item} to='/profile'>Profile</NavLink>
+            <NavLink className={style.item} to='/dialogs'>Messages</NavLink>
+            <NavLink className={style.item} to='/news'>News</NavLink>
+            <NavLink className={style.item} to='/music'>Music</NavLink>
+            <NavLink className={style.item} to='/settings'>Settings</NavLink>
 
-        return (
-            <div className={style.nav}>
-                <NavLink className={style.item} to='/profile'>Profile</NavLink>
-                <NavLink className={style.item} to='/dialogs'>Messages</NavLink>
-                <NavLink className={style.item} to='/news'>News</NavLink>
-                <NavLink className={style.item} to='/music'>Music</NavLink>
-                <NavLink className={style.item} to='/settings'>Settings</NavLink>
+            <ul className={style.f_container}>
+                {friends}
+            </ul>
 
-                <ul className={style.f_container}>
-                    {friends}
-                </ul>
-
-            </div>
-        );
-    }
+        </div>
+    );
 };
 
 export default NavBar;

@@ -1,21 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 // import style from '../../component-styles/Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-class Profile extends Component {
-    render(){
-    const {profilePage, dispatch} = this.props;
-        return (
-            <div>
-                <ProfileInfo />
-                <MyPosts 
-                post={profilePage.postsObj} 
-                newPostText={profilePage.newPostText} 
-                dispatch={dispatch} />
-            </div>
-        );
-    }
+const Profile = (props) => {
+    return (
+        <div>
+            <ProfileInfo />
+            <MyPosts 
+            post={props.profilePage.postsObj} 
+            newPostText={props.profilePage.newPostText} 
+            dispatch={props.dispatch} />
+        </div>
+    );
 }; 
 
 export default Profile;

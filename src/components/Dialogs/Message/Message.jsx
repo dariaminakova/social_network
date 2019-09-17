@@ -1,16 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import style from '../../../component-styles/Dialogs.module.css';
 
-class MessageItem extends Component {
-    render(){
-        const {message} = this.props;
-        return (
-        <div>
-            <p className={style.message}>
-                {message}
-            </p>
-        </div>);
-    }
+const MessageItem = (props) => {
+    return (
+    <div>
+        <p className={style.message}>
+            {props.message}
+        </p>
+    </div>);
 }; 
 
 export default MessageItem;

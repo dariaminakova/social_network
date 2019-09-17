@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Switch, Route} from 'react-router-dom'
 
 import './App.css';
@@ -10,33 +10,28 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings'
 
-class App extends Component {
-  
-  render(){
-
-    const {state, dispatch} = this.props;
-
+const App = (props) => {
   return (
       <div className='app-wrapper'>
         <Header />
-        <NavBar state={state.profilePage} />
+        <NavBar state={props.state.profilePage} />
         <div className='app-wrapper-content'>
           <Switch>
             <Route path='/profile' render = {() => 
             <Profile 
-            profilePage={state.profilePage} 
-            dispatch={dispatch} />} />
+            profilePage={props.state.profilePage} 
+            dispatch={props.dispatch} />} />
             <Route path='/dialogs' render = {() => 
             <Dialogs 
-            messagesPage={state.messagesPage} 
-            dispatch={dispatch}/>} />
+            messagesPage={props.state.messagesPage} 
+            dispatch={props.dispatch}/>} />
             <Route path='/news' render = {() => <News />} />
             <Route path='/music' render = {() => <Music />} />
             <Route path='/settings' render = {() => <Settings />} />
           </Switch>
         </div>
       </div>
-  );}
+  );
 };
 
 export default App;
