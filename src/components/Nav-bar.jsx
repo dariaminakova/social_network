@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
 import style from '../component-styles/Nav.module.css';
 import {NavLink} from 'react-router-dom';
-// import ListGroup from 'react-bootstrap/ListGroup'
 
 class NavBar extends Component {
     render(){
 
         const{state} = this.props;
 
-        let friends = state.friendsObj.map((f) => {
-            return <li>{f.name}</li>
-        });
+        let friends = state.friendsObj.map((f) => {return <li>{f.name}</li>});
 
         return (
             <div className={style.nav}>

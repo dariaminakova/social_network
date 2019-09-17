@@ -6,7 +6,7 @@ let store = {
 // unchanged settings
     _state: {
         profilePage:{    
-            postsObj: [ 
+        postsObj: [ 
             {id: 0, text: 'Here', likesCount: 12},
             {id: 1, text: 'will', likesCount: 13},
             {id: 2, text: 'be', likesCount: 8},

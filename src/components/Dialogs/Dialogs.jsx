@@ -42,7 +42,7 @@ class Dialogs extends Component {
                         placeholder = 'type your message'
                         onChange = {onMessageAriaChange}
                         value = {messagesPage.newMessage}/>
-                       <button onClick = { sendMessage }>Send Message</button>
+                       <button onClick = {sendMessage}>Send Message</button>
                     </div>
                </div>
            </div>

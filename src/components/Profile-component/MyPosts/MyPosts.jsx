@@ -9,9 +9,7 @@ class MyPosts extends Component {
 
         const {post, dispatch, newPostText} = this.props;
 
-        let postUsers = post.map((p) => {
-            return <Post text={p.text} likesCount={p.likesCount}/>
-        });
+        let postUsers = post.map((p) => {return <Post text={p.text} likesCount={p.likesCount}/>});
 
         let addPostCust = () => {
             dispatch(addPostCreator());
@@ -29,7 +27,7 @@ class MyPosts extends Component {
                     <textarea 
                     onChange = {onPostChange} 
                     value = {newPostText} />
-                    <button onClick = { addPostCust }>Add post</button>
+                    <button onClick = {addPostCust}>Add post</button>
                 </div>
                 <div>
                     {postUsers}
