@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 
 const NavBar = (props) => {
 
-    let friends = props.state.friendsObj.map((f) => {return <li>{f.name}</li>});
+    let friends = props.profilePage.friends.map((f) => {return <li>{f.name}</li>});
 
     return (
         <div className={style.nav}>

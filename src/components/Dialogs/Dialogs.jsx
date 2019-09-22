@@ -1,26 +1,25 @@
 import React from 'react';
 import style from '../../component-styles/Dialogs.module.css';
 
-import {sendMessageCreator, updateMessageAriaCreator} from '../../redux/messageReducer';
-
 import MessageItem from './Message/Message';
 import DialogUser from './DialogUser/DialogUser';
 
 const Dialogs = (props) => {
-    let dialogsUsers = props.messagesPage.dialogsObj.map((d) => {
+    
+    let dialogsUsers = props.messagesPage.dialogs.map((d) => {
         return <DialogUser name={d.name} id={d.id} />
     });
-    let messageUsers = props.messagesPage.messagesObj.map((m) => {
+    let messageUsers = props.messagesPage.messages.map((m) => {
         return <MessageItem message={m.message} />
     });
 
     let sendMessage = () => {
-    props.dispatch(sendMessageCreator());
+    props.sendMessage();
     }
 
     let onMessageAriaChange = (e) =>{
     let text = e.target.value;
-    props.dispatch(updateMessageAriaCreator(text));
+    props.updateMessageAria(text);
 
     }
 

@@ -2,7 +2,7 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
 
 let initialState = {    
-    postsObj: [ 
+    posts: [ 
         {id: 0, text: 'Here', likesCount: 12},
         {id: 1, text: 'will', likesCount: 13},
         {id: 2, text: 'be', likesCount: 8},
@@ -12,7 +12,7 @@ let initialState = {
         {id: 6, text: 'your', likesCount: 21},
         {id: 7, text: 'users', likesCount: 5}
     ],
-    friendsObj: [ 
+    friends: [ 
         {id: 1, name: 'Rick'},
         {id: 2, name: 'Morty'},
         {id: 3, name: 'Joy'},
@@ -27,18 +27,23 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) =>{
     switch (action.type){
-        case ADD_POST:
+        case ADD_POST:{
             let newPost = {
                 id: 10,
                 text: state.newPostText,
                 likesCount: 8
             };
-            state.postsObj.push(newPost);
-            state.newPostText = '';
-            return state;
-        case UPDATE_NEW_TEXT:
-            state.newPostText = action.newText;
-            return state;
+            let stateCopy = {...state};
+            stateCopy.posts = [...state.posts];
+            stateCopy.posts.push(newPost);
+            stateCopy.newPostText = '';
+            return stateCopy;
+        }
+        case UPDATE_NEW_TEXT:{
+            let stateCopy = {...state};
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
+        }
         default:
             return state;
     }

@@ -26,4 +26,10 @@ a.item:focus{
 }
 .f_container{
   list-style: none;
+  padding: 20px;
+  background: linear-gradient(to bottom, rgb(161, 200, 252), rgb(203, 234, 176));
+}
+.f_container li{
+  border-bottom: 0.5px solid rgb(58, 58, 58);
+  padding: 3px;
 }
