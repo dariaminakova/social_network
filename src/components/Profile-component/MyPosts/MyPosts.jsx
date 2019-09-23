@@ -4,7 +4,7 @@ import Post from './Post';
 import style from '../../../component-styles/MyPosts.module.css';
 
 const MyPosts = (props) => {
-    let postUsers = props.posts.map((p) => {return <Post text={p.text} likesCount={p.likesCount}/>});
+    let postUsers = props.posts.map((p) => {return <Post text={p.text} likesCount={p.likesCount} key={p.id}/>});
 
     let onAddPost = () => {
         props.addPost();

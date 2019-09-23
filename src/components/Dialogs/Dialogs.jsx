@@ -5,12 +5,11 @@ import MessageItem from './Message/Message';
 import DialogUser from './DialogUser/DialogUser';
 
 const Dialogs = (props) => {
-    
     let dialogsUsers = props.messagesPage.dialogs.map((d) => {
-        return <DialogUser name={d.name} id={d.id} />
+        return <DialogUser name={d.name} id={d.id} key={d.id}/>
     });
     let messageUsers = props.messagesPage.messages.map((m) => {
-        return <MessageItem message={m.message} />
+        return <MessageItem message={m.message} key={m.id}/>
     });
 
     let sendMessage = () => {
