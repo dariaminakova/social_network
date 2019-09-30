@@ -9,6 +9,7 @@ const NavBar = (props) => {
     return (
         <div className={style.nav}>
             <NavLink className={style.item} to='/profile'>Profile</NavLink>
+            <NavLink className={style.item} to='/users'>Users</NavLink>
             <NavLink className={style.item} to='/dialogs'>Messages</NavLink>
             <NavLink className={style.item} to='/news'>News</NavLink>
             <NavLink className={style.item} to='/music'>Music</NavLink>
