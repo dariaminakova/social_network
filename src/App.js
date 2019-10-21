@@ -1,9 +1,8 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom'
-
 import './App.css';
 import Header from './components/Header';
-import Profile from './components/Profile-component/Profile';
+import ProfileComponent from './components/Profile-component/ProfileComponent';
 import NavBarContainer from './components/NavBarContainer';
 import News from './components/News/News';
 import Music from './components/Music/Music';
@@ -19,7 +18,7 @@ const App = () => {
         <div className='app-wrapper-content'>
           <Switch>
             <Route path='/profile' render = {() => 
-            <Profile />} />
+            <ProfileComponent />} />
             <Route path='/dialogs' render = {() => 
             <DialogsContainer />} />
             <Route path='/users' render = {() => <UsersContainer /> } />
