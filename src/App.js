@@ -1,7 +1,6 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom'
 import './App.css';
-import Header from './components/Header';
 import ProfileComponent from './components/Profile-component/ProfileComponent';
 import NavBarContainer from './components/NavBarContainer';
 import News from './components/News/News';
@@ -9,11 +8,12 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings'
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
+import HeaderContainer from './components/header/HeaderContainer';
 
 const App = () => {
   return (
       <div className='app-wrapper'>
-        <Header />
+        <HeaderContainer />
         <NavBarContainer />
         <div className='app-wrapper-content'>
           <Switch>
