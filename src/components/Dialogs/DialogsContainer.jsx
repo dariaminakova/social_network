@@ -1,6 +1,9 @@
-import {sendMessageCreator, updateMessageAriaCreator} from '../../redux/messageReducer';
-import Dialogs from './Dialogs';
-import {connect} from 'react-redux';
+import {
+  sendMessageCreator,
+  updateMessageAriaCreator
+} from "../../redux/messageReducer";
+import Dialogs from "./Dialogs";
+import { connect } from "react-redux";
 
 // const DialogsContainer = () => {
 //     return <StoreContext.Consumer>
@@ -17,28 +20,28 @@ import {connect} from 'react-redux';
 //                 }
 
 //                 return ( <Dialogs sendMessage = {sendMessage}
-//                                 updateMessageAria = {changeMessageAria} 
+//                                 updateMessageAria = {changeMessageAria}
 //                                 messagesPage = {state}/> );
 //                     }}
 //     </StoreContext.Consumer>
-// }; 
+// };
 
-let mapStateToProps = (state) => {
-    return {
-        messagesPage: state.messagesPage
-    }
-}
+let mapStateToProps = state => {
+  return {
+    messagesPage: state.messagesPage
+  };
+};
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        sendMessage: () => {
-            dispatch(sendMessageCreator())
-        },
-        updateMessageAria: (text) => {
-            dispatch(updateMessageAriaCreator(text))
-        }
+let mapDispatchToProps = dispatch => {
+  return {
+    sendMessage: () => {
+      dispatch(sendMessageCreator());
+    },
+    updateMessageAria: text => {
+      dispatch(updateMessageAriaCreator(text));
     }
-}
+  };
+};
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
