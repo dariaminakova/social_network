@@ -38,7 +38,7 @@ export const auth = {
   },
 };
 
-export const profile = {
+export const getProfile = {
   setUserProfile(userId) {
     return instance.get(`profile/${userId}`).then((response) => {
       return response.data;
