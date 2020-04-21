@@ -26,12 +26,10 @@ export const userAPI = {
   },
 };
 
-export const auth = {
+export const authAPI = {
   authMe() {
     return instance
-      .get(`auth/me`, {
-        withCredentials: true,
-      })
+      .get(`auth/me`)
       .then((response) => {
         return response.data;
       });
