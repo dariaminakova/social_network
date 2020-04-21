@@ -1,3 +1,5 @@
+import { profile } from "../api/api";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_TEXT = "UPDATE-NEW-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -11,7 +13,7 @@ let initialState = {
     { id: 4, text: "posts", likesCount: 9 },
     { id: 5, text: "from", likesCount: 17 },
     { id: 6, text: "your", likesCount: 21 },
-    { id: 7, text: "users", likesCount: 5 }
+    { id: 7, text: "users", likesCount: 5 },
   ],
   friends: [
     { id: 1, name: "Rick" },
@@ -21,10 +23,10 @@ let initialState = {
     { id: 5, name: "Chris" },
     { id: 6, name: "Peter" },
     { id: 7, name: "Tony" },
-    { id: 8, name: "Eva" }
+    { id: 8, name: "Eva" },
   ],
   newPostText: "",
-  profile: null
+  profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -33,7 +35,7 @@ const profileReducer = (state = initialState, action) => {
       let newPost = {
         id: 10,
         text: state.newPostText,
-        likesCount: 8
+        likesCount: 8,
       };
       return { ...state, newPostText: "", posts: [...state.posts, newPost] };
     case UPDATE_NEW_TEXT:
@@ -46,9 +48,20 @@ const profileReducer = (state = initialState, action) => {
 };
 
 export const addPostCreator = () => ({ type: ADD_POST });
-export const updateNewTextCreator = text => {
+export const updateNewTextCreator = (text) => {
   return { type: UPDATE_NEW_TEXT, newText: text };
 };
-export const setUserProfile = profile => ({ type: SET_USER_PROFILE, profile });
+export const setUserProfile = (profile) => ({
+  type: SET_USER_PROFILE,
+  profile,
+});
+
+export const userProfile = (userId) => {
+  return (dispatch) => {
+    profile.setUserProfile(userId).then((response) => {
+      dispatch(setUserProfile(response.data));
+    });
+  };
+};
 
 export default profileReducer;
