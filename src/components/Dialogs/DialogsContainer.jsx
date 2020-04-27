@@ -1,48 +1,32 @@
 import {
   sendMessageCreator,
-  updateMessageAriaCreator
+  updateMessageAriaCreator,
 } from "../../redux/messageReducer";
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
+import AuthHOC from "../../shared/HOC/AuthHOC";
 
-// const DialogsContainer = () => {
-//     return <StoreContext.Consumer>
-//         {store => {
-//                 let state = store.getState().messagesPage;
-
-//                 let sendMessage = () => {
-//                 store.dispatch(sendMessageCreator());
-//                 }
-
-//                 let changeMessageAria = (text) =>{
-//                 store.dispatch(updateMessageAriaCreator(text));
-
-//                 }
-
-//                 return ( <Dialogs sendMessage = {sendMessage}
-//                                 updateMessageAria = {changeMessageAria}
-//                                 messagesPage = {state}/> );
-//                     }}
-//     </StoreContext.Consumer>
-// };
-
-let mapStateToProps = state => {
+let mapStateToProps = (state) => {
   return {
-    messagesPage: state.messagesPage
+    messagesPage: state.messagesPage,
   };
 };
 
-let mapDispatchToProps = dispatch => {
+let mapDispatchToProps = (dispatch) => {
   return {
     sendMessage: () => {
       dispatch(sendMessageCreator());
     },
-    updateMessageAria: text => {
+    updateMessageAria: (text) => {
       dispatch(updateMessageAriaCreator(text));
-    }
+    },
   };
 };
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const AuthRedirect = AuthHOC(Dialogs);
+const DialogsContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AuthRedirect);
 
 export default DialogsContainer;

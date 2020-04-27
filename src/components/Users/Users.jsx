@@ -26,7 +26,7 @@ const Users = (props) => {
           return (
             <span
               key={p}
-              className={currentPage === p && style.selectedPage}
+              className={currentPage === p ? style.selectedPage : ""}
               onClick={() => {
                 onPageChanged(p);
               }}
@@ -41,7 +41,7 @@ const Users = (props) => {
           <div className={style.avatar}>
             <NavLink to={"/profile/" + u.id}>
               <img
-                src={u.photos.small != null ? u.photos.small : userPhoto}
+                src={u.photos.small !== null ? u.photos.small : userPhoto}
                 alt="avatar"
               />
             </NavLink>

@@ -1,24 +1,25 @@
 import React from "react";
 import style from "../../component-styles/Dialogs.module.css";
-
 import MessageItem from "./Message/Message";
 import DialogUser from "./DialogUser/DialogUser";
 
-const Dialogs = props => {
-  let dialogsUsers = props.messagesPage.dialogs.map(d => {
+const Dialogs = (props) => {
+  const { messagesPage, sendMessage, updateMessageAria } = props;
+
+  const dialogsUsers = messagesPage.dialogs.map((d) => {
     return <DialogUser name={d.name} id={d.id} key={d.id} />;
   });
-  let messageUsers = props.messagesPage.messages.map(m => {
+  const messageUsers = messagesPage.messages.map((m) => {
     return <MessageItem message={m.message} key={m.id} />;
   });
 
-  let sendMessage = () => {
-    props.sendMessage();
+  const onSendMessage = () => {
+    sendMessage();
   };
 
-  let onMessageAriaChange = e => {
-    let text = e.target.value;
-    props.updateMessageAria(text);
+  const onMessageAriaChange = (e) => {
+    const text = e.target.value;
+    updateMessageAria(text);
   };
 
   return (
@@ -35,7 +36,7 @@ const Dialogs = props => {
             onChange={onMessageAriaChange}
             value={props.messagesPage.newMessage}
           />
-          <button onClick={sendMessage}>Send Message</button>
+          <button onClick={onSendMessage}>Send Message</button>
         </div>
       </div>
     </div>
