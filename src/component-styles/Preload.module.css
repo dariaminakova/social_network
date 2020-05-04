@@ -1,0 +1,7 @@
+.preload_pic {
+  width: 70px;
+}
+
+.preload_pic > img {
+  width: 100%;
+}
