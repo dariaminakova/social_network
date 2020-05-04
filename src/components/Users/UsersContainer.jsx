@@ -1,6 +1,7 @@
 import Users from "./Users";
 import React from "react";
 import { connect } from "react-redux";
+import { compose } from "redux";
 import {
   follow,
   unfollow,
@@ -9,6 +10,7 @@ import {
   getUsers,
 } from "../../redux/usersReducer";
 import Preloader from "../common/preloader/Preloader";
+import AuthHOC from "../../shared/HOC/AuthHOC";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -50,33 +52,13 @@ let mapStateToProps = (state) => {
   };
 };
 
-// let mapDipatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId))
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unfollowAC(userId))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users))
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber))
-//         },
-//         setTotalUsersCount: (totalCount) => {
-//             dispatch(setTotalUsersCountAC(totalCount))
-//         },
-//         setToggleIsFetching: (isFetching) => {
-//             dispatch(toggleIsFetchingAC(isFetching))
-//         }
-//     }
-// }
-
-export default connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setCurrentPage,
-  setFollowingInProgress,
-  getUsers,
-})(UsersContainer);
+export default compose(
+  connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setCurrentPage,
+    setFollowingInProgress,
+    getUsers,
+  }),
+  AuthHOC
+)(UsersContainer);

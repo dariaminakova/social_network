@@ -59,7 +59,7 @@ export const setUserProfile = (profile) => ({
 export const userProfile = (userId) => {
   return (dispatch) => {
     getProfile.setUserProfile(userId).then((response) => {
-      dispatch(setUserProfile(response.data));
+      dispatch(setUserProfile(response));
     });
   };
 };

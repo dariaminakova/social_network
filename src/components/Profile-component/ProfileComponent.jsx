@@ -1,25 +1,21 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
-import Profile from "./Profile";
+import { compose } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Profile from "./Profile";
 import { userProfile } from "../../redux/profileReducer";
-import AuthHOC from "../../shared/HOC/AuthHOC";
+// import AuthHOC from "../../shared/HOC/AuthHOC";
 
 class ProfileComponent extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
     if (!userId) {
-      userId = 2;
+      userId = 1752; // my id
     }
     this.props.userProfile(userId);
   }
 
   render() {
-    const { isAuth } = this.props;
-
-    if (!isAuth) return <Redirect to="/login" />;
-
     return (
       <div>
         <Profile {...this.props} profile={this.props.profile} />
@@ -28,12 +24,12 @@ class ProfileComponent extends React.Component {
   }
 }
 
-let AuthRedirect = AuthHOC(ProfileComponent);
-
-const WithRouterProfileComponent = withRouter(AuthRedirect);
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
 });
-export default connect(mapStateToProps, { userProfile })(
-  WithRouterProfileComponent
-);
+
+export default compose(
+  connect(mapStateToProps, { userProfile }),
+  withRouter
+  // AuthHOC
+)(ProfileComponent);

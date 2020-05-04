@@ -5,6 +5,7 @@ import {
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import AuthHOC from "../../shared/HOC/AuthHOC";
+import { compose } from "redux";
 
 let mapStateToProps = (state) => {
   return {
@@ -23,10 +24,7 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 
-const AuthRedirect = AuthHOC(Dialogs);
-const DialogsContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AuthRedirect);
-
-export default DialogsContainer;
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  AuthHOC
+)(Dialogs);
