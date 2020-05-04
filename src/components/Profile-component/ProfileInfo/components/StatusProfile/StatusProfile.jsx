@@ -19,6 +19,11 @@ class StatusProfile extends Component {
     this.setState({ status: value });
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({ status: this.props.status });
+    }
+  }
   render() {
     return (
       <div>
