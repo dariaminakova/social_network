@@ -1,34 +1,46 @@
 import React from "react";
-import Profile from "./Profile";
+import { compose } from "redux";
 import { connect } from "react-redux";
-import * as axios from "axios";
 import { withRouter } from "react-router-dom";
-import { setUserProfile } from "../../redux/profileReducer";
+import Profile from "./Profile";
+import {
+  userProfile,
+  getStatus,
+  updateStatus,
+} from "../../redux/profileReducer";
+// import AuthHOC from "../../shared/HOC/AuthHOC";
 
 class ProfileComponent extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
     if (!userId) {
-      userId = 2;
+      userId = 1752; // my id
     }
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-      .then(response => {
-        this.props.setUserProfile(response.data);
-      });
+    this.props.userProfile(userId);
+    this.props.getStatus(userId);
   }
 
   render() {
     return (
       <div>
-        <Profile {...this.props} profile={this.props.profile} />
+        <Profile
+          {...this.props}
+          profile={this.props.profile}
+          status={this.props.status}
+          updateStatus={this.props.updateStatus}
+        />
       </div>
     );
   }
 }
 
-const WithRouterProfileComponent = withRouter(ProfileComponent);
-const mapStateToProps = state => ({ profile: state.profilePage.profile });
-export default connect(mapStateToProps, { setUserProfile })(
-  WithRouterProfileComponent
-);
+const mapStateToProps = (state) => ({
+  profile: state.profilePage.profile,
+  status: state.profilePage.status,
+});
+
+export default compose(
+  connect(mapStateToProps, { userProfile, getStatus, updateStatus }),
+  withRouter
+  // AuthHOC
+)(ProfileComponent);
