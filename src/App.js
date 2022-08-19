@@ -1,15 +1,15 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
-import ProfileComponent from "./components/Profile-component/ProfileComponent";
-import NavBarContainer from "./components/NavBarContainer";
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
-import HeaderContainer from "./components/header/HeaderContainer";
-import Login from "./components/Login/Login";
+import ProfileComponent from "Components/Profile-component/ProfileComponent";
+import NavBarContainer from "Components/NavBarContainer";
+import News from "Components/News/News";
+import Music from "Components/Music/Music";
+import Settings from "Components/Settings/Settings";
+import DialogsContainer from "Components/Dialogs/DialogsContainer";
+import UsersContainer from "Components/Users/UsersContainer";
+import HeaderContainer from "Components/header/HeaderContainer";
+import Login from "Components/Login/Login";
 
 const App = () => {
   return (
