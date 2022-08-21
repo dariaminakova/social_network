@@ -1,9 +1,14 @@
-import React from "react";
-import style from "../component-styles/Nav.module.css";
-import { NavLink } from "react-router-dom";
+// Modules
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const NavBar = props => {
-  let friends = props.profilePage.friends.map(f => {
+// Styles
+import style from '../component-styles/Nav.module.css';
+
+const NavBar = (props) => {
+  const { profilePage } = props;
+
+  const friends = profilePage.friends.map((f) => {
     return <li key={f.id}>{f.name}</li>;
   });
 

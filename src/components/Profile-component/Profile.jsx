@@ -1,15 +1,19 @@
-import React from "react";
-// import style from '../../component-styles/Profile.module.css';
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
+// Modules
+import React from 'react';
+
+// Components
+import MyPostsContainer from './MyPosts/MyPostsContainer';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
+  const { profile, status, updateStatus } = props;
+
   return (
     <div>
       <ProfileInfo
-        profile={props.profile}
-        status={props.status}
-        updateStatus={props.updateStatus}
+        profile={profile}
+        status={status}
+        updateStatus={updateStatus}
       />
       <MyPostsContainer />
     </div>

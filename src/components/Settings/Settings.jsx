@@ -1,8 +1,8 @@
-import React from "react";
-// import style from '../../component-styles/Dialogs.module.css';
+// Modules
+import React from 'react';
 
-const Settings = props => {
+function Settings(props) {
   return <div>Settings</div>;
-};
+}
 
 export default Settings;

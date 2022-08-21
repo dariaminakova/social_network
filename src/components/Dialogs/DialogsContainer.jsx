@@ -1,11 +1,11 @@
 import {
   sendMessageCreator,
   updateMessageAriaCreator,
-} from "../../redux/messageReducer";
-import Dialogs from "./Dialogs";
-import { connect } from "react-redux";
-import AuthHOC from "../../shared/HOC/AuthHOC";
-import { compose } from "redux";
+} from 'Engine/messageReducer';
+import Dialogs from './Dialogs';
+import { connect } from 'react-redux';
+import AuthHOC from '../../shared/HOC/AuthHOC';
+import { compose } from 'redux';
 
 let mapStateToProps = (state) => {
   return {
@@ -13,18 +13,7 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    sendMessage: () => {
-      dispatch(sendMessageCreator());
-    },
-    updateMessageAria: (text) => {
-      dispatch(updateMessageAriaCreator(text));
-    },
-  };
-};
-
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(mapStateToProps, { sendMessageCreator, updateMessageAriaCreator }),
   AuthHOC
 )(Dialogs);

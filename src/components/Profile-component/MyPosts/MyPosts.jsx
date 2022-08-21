@@ -1,32 +1,38 @@
-import React from "react";
-import Post from "./Post";
+// Modules
+import React from 'react';
 
-import style from "../../../component-styles/MyPosts.module.css";
+// Components
+import Post from './Post';
 
-const MyPosts = props => {
-  let postUsers = props.posts.map(p => {
+// Styles
+import style from '../../../component-styles/MyPosts.module.css';
+
+function MyPosts(props) {
+  const { addPost, newPostText, posts, updateNewText } = props;
+
+  const postUsers = posts.map((p) => {
     return <Post text={p.text} likesCount={p.likesCount} key={p.id} />;
   });
 
-  let onAddPost = () => {
-    props.addPost();
+  const onAddPost = () => {
+    addPost();
   };
 
-  let onPostChange = e => {
+  const onPostChange = (e) => {
     let text = e.target.value;
-    props.updateNewText(text);
+    updateNewText(text);
   };
 
   return (
     <div className={style.posts_container}>
       <h4>my posts</h4>
       <div>
-        <textarea onChange={onPostChange} value={props.newPostText} />
+        <textarea onChange={onPostChange} value={newPostText} />
         <button onClick={onAddPost}>Add post</button>
       </div>
       <div>{postUsers}</div>
     </div>
   );
-};
+}
 
 export default MyPosts;

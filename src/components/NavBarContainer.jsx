@@ -1,9 +1,12 @@
-import NavBar from "./NavBar";
-import { connect } from "react-redux";
+// Modules
+import { connect } from 'react-redux';
 
-let mapStateToProps = state => {
+// Components
+import NavBar from './NavBar';
+
+const mapStateToProps = (state) => {
   return {
-    profilePage: state.profilePage
+    profilePage: state.profilePage,
   };
 };
 

@@ -1,10 +1,14 @@
-import React from "react";
-import style from "../../../component-styles/Dialogs.module.css";
+// Modules
+import React from 'react';
 
-const MessageItem = props => {
+// Styles
+import style from '../../../component-styles/Dialogs.module.css';
+
+const MessageItem = (props) => {
+  const { message } = props;
   return (
     <div>
-      <p className={style.message}>{props.message}</p>
+      <p className={style.message}>{message}</p>
     </div>
   );
 };

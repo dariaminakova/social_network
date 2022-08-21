@@ -1,6 +1,8 @@
+// Modules
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import "./App.css";
+
+// Components
 import ProfileComponent from "Components/Profile-component/ProfileComponent";
 import NavBarContainer from "Components/NavBarContainer";
 import News from "Components/News/News";
@@ -10,6 +12,9 @@ import DialogsContainer from "Components/Dialogs/DialogsContainer";
 import UsersContainer from "Components/Users/UsersContainer";
 import HeaderContainer from "Components/header/HeaderContainer";
 import Login from "Components/Login/Login";
+
+// Styles
+import "./App.css";
 
 const App = () => {
   return (

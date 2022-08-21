@@ -1,13 +1,14 @@
-import React from "react";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import Profile from "./Profile";
-import {
-  userProfile,
-  getStatus,
-  updateStatus,
-} from "../../redux/profileReducer";
+// Module
+import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+// Components
+import Profile from './Profile';
+
+// Engine
+import { userProfile, getStatus, updateStatus } from 'Engine/profileReducer';
 // import AuthHOC from "../../shared/HOC/AuthHOC";
 
 class ProfileComponent extends React.Component {

@@ -1,7 +1,12 @@
-import React from "react";
-import style from "../../component-styles/Dialogs.module.css";
-import MessageItem from "./Message/Message";
-import DialogUser from "./DialogUser/DialogUser";
+// Modules
+import React from 'react';
+
+// Components
+import MessageItem from './Message/Message';
+import DialogUser from './DialogUser/DialogUser';
+
+// Styles
+import style from '../../component-styles/Dialogs.module.css';
 
 const Dialogs = (props) => {
   const { messagesPage, sendMessage, updateMessageAria } = props;
