@@ -1,3 +1,3 @@
-import StatusProfile from "./StatusProfile";
+import StatusProfile from './StatusProfile';
 
 export default StatusProfile;

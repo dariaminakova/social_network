@@ -1,14 +1,17 @@
-import React from "react";
-// import style from '../../../component-styles/Dialogs.module.css';
-import { NavLink } from "react-router-dom";
+// Modules
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const DialogUser = props => {
-  let path = "/dialogs/" + props.id;
+// import style from '../../../component-styles/Dialogs.module.css';
+
+const DialogUser = (props) => {
+  const { id, name } = props;
+  let path = '/dialogs/' + id;
 
   return (
     <div>
       <li>
-        <NavLink to={path}>{props.name}</NavLink>
+        <NavLink to={path}>{name}</NavLink>
       </li>
     </div>
   );

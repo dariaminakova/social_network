@@ -1,10 +1,10 @@
-.avatar{
+.avatar {
   width: 200px;
   margin: 20px;
 }
-.avatar img{
+.avatar img {
   width: 100%;
 }
-.selectedPage{
+.selectedPage {
   font-weight: bold;
 }

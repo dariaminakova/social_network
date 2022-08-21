@@ -1,14 +1,14 @@
-.nav{
+.nav {
   grid-area: nav-string;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
-a.item{
+a.item {
   border-top: 1px solid #f2f6f5;
   cursor: pointer;
   -webkit-transition: all 0.25s ease;
@@ -17,19 +17,19 @@ a.item{
   margin: 0;
   padding: 8px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   color: grey;
   text-decoration: none;
 }
-a.item:focus{
+a.item:focus {
   color: rgb(16, 156, 156);
 }
-.f_container{
+.f_container {
   list-style: none;
   padding: 20px;
-  background: linear-gradient(to bottom, rgb(161, 200, 252), rgb(203, 234, 176));
+  background-color: rgb(161, 200, 252);
 }
-.f_container li{
+.f_container li {
   border-bottom: 0.5px solid rgb(58, 58, 58);
   padding: 3px;
 }

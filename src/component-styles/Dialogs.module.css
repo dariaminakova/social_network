@@ -1,15 +1,15 @@
 .dialogs {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 2fr 7fr;
-    grid-template-columns: 2fr 7fr;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 7fr;
+  grid-template-columns: 2fr 7fr;
 }
-.message{
-    background-color: rgb(255, 255, 255);
-    padding: 6px;
-    width: 100%;
-    margin: 4px auto;
-    border: 0.5px solid gray;
-    border-radius: 10px;
-    height: auto;
+.message {
+  background-color: rgb(255, 255, 255);
+  padding: 6px;
+  width: 100%;
+  margin: 4px auto;
+  border: 0.5px solid gray;
+  border-radius: 10px;
+  height: auto;
 }

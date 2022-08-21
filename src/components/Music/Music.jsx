@@ -1,8 +1,8 @@
-import React from "react";
-// import style from '../../component-styles/Dialogs.module.css';
+// Modules
+import React from 'react';
 
-const Music = props => {
+function Music(props) {
   return <div>Music</div>;
-};
+}
 
 export default Music;

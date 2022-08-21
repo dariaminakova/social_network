@@ -1,15 +1,22 @@
-import Users from "./Users";
+// Modules
 import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
+
+// Components
+import Users from "./Users";
+import Preloader from "../common/preloader/Preloader";
+
+// Engine
 import {
   follow,
   unfollow,
   setCurrentPage,
   setFollowingInProgress,
   getUsers,
-} from "../../redux/usersReducer";
-import Preloader from "../common/preloader/Preloader";
+} from "Engine/usersReducer";
+
+// HOC
 import AuthHOC from "../../shared/HOC/AuthHOC";
 
 class UsersContainer extends React.Component {

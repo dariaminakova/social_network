@@ -1,7 +1,12 @@
-import React, { Component } from "react";
-import Header from "./Header";
-import { connect } from "react-redux";
-import { AuthUser } from "../../redux/auth";
+// Modules
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+// Components
+import Header from './Header';
+
+// Engine
+import { AuthUser } from 'Engine/auth';
 
 class HeaderContainer extends Component {
   componentDidMount() {

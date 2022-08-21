@@ -1,26 +1,19 @@
 .app-wrapper {
+  -ms-grid-columns: 2fr 10px 10fr;
+  -ms-grid-rows: 60px 10px 1fr;
   display: -ms-grid;
   display: grid;
-  grid-template-areas:
-    "header-string header-string"
-    "nav-string content-string";
-  -ms-grid-rows: 60px 10px 1fr;
-  grid-template-rows: 60px 1fr;
-  -ms-grid-columns: 2fr 10px 10fr;
-  grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
-  width: 100%;
+  grid-template-areas: 'header-string header-string' 'nav-string content-string';
+  grid-template-columns: 2fr 10fr;
+  grid-template-rows: 60px 1fr;
   margin: 0 auto;
+  width: 100%;
 }
 .app-wrapper-content {
-  -ms-grid-row: 3;
   -ms-grid-column: 3;
+  -ms-grid-row: 3;
+  background-color: #f3f3f3;
   grid-area: content-string;
-  background: #98ffe5; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
-  background: -o-linear-gradient(right, #919191, #98ffe5);
-  background: linear-gradient(
-    to left,
-    #919191,
-    #98ffe5
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 20px;
 }

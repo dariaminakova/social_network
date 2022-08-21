@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+// Modules
+import React, { Component } from 'react';
 
 class StatusProfile extends Component {
   state = {
@@ -29,7 +30,7 @@ class StatusProfile extends Component {
       <div>
         {!this.state.editMode && (
           <span onDoubleClick={this.activateEditMode}>
-            {this.props.status || "click here to add your status"}
+            {this.props.status || 'click here to add your status'}
           </span>
         )}
         {this.state.editMode && (

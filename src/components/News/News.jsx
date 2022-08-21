@@ -1,8 +1,8 @@
-import React from "react";
-// import style from '../../component-styles/Dialogs.module.css';
+// Modules
+import React from 'react';
 
-const News = props => {
+function News(props) {
   return <div>News</div>;
-};
+}
 
 export default News;
